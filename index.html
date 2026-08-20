@@ -88,7 +88,8 @@ h1 em::after{
 .wave{display:block; width:100%; height:34px; margin-top:14px}
 
 /* ── section shell ────────────────────────────────────── */
-section{scroll-margin-top:64px}
+section{scroll-margin-top:20px}
+details.acc,details.gc{scroll-margin-top:14px}
 .sec-head{display:flex; align-items:baseline; gap:9px; margin:38px 0 14px}
 .sec-head h2{
   font-family:var(--round); font-weight:400; font-size:22px; margin:0; color:var(--ink);
@@ -401,6 +402,7 @@ html{scroll-behavior:smooth}
     <div class="sec-head"><span class="eyebrow">Step 1</span><h2>비상금 3~6개월치</h2></div>
     <p class="sec-note">눌러서 하나씩 열어보세요.</p>
 
+    <button class="collapse" data-collapse type="button">모두 접기 ▲</button>
     <details class="acc">
       <summary><span class="idx">01</span><span class="ttl">한 달 고정지출 × 3~6개월</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="m6 9 6 6 6-6"/></svg></summary>
       <div class="acc-body">
@@ -444,6 +446,7 @@ html{scroll-behavior:smooth}
     <div class="sec-head"><span class="eyebrow">Step 2</span><h2>ISA 세팅</h2></div>
     <p class="sec-note">같은 상품을 사도 <b>어느 계좌에서 사느냐</b>에 따라 손에 남는 돈이 달라져요.</p>
 
+    <button class="collapse" data-collapse type="button">모두 접기 ▲</button>
     <details class="acc">
       <summary><span class="idx">01</span><span class="ttl">ISA가 뭔가요</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="m6 9 6 6 6-6"/></svg></summary>
       <div class="acc-body">
@@ -547,6 +550,7 @@ html{scroll-behavior:smooth}
     <div class="sec-head"><span class="eyebrow">Step 3</span><h2>월급 10%로 ETF</h2></div>
     <p class="sec-note">금액보다 <b>지속성</b>이 중요해요.</p>
 
+    <button class="collapse" data-collapse type="button">모두 접기 ▲</button>
     <details class="acc">
       <summary><span class="idx">01</span><span class="ttl">10%인 이유</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="m6 9 6 6 6-6"/></svg></summary>
       <div class="acc-body">
@@ -675,6 +679,7 @@ html{scroll-behavior:smooth}
     <div class="sec-head"><span class="eyebrow">Dictionary</span><h2>경제용어 부수기</h2></div>
     <p class="sec-note">궁금한 단어를 눌러보세요.</p>
     <div class="gal">
+    <button class="collapse" data-collapse type="button">모두 접기 ▲</button>
       <details class="gc"><summary><span class="gt">ETF</span><span class="gp">＋</span></summary><p>상장지수펀드. 여러 종목을 담은 펀드를 주식처럼 거래소에서 사고파는 상품이에요.</p></details>
       <details class="gc"><summary><span class="gt">ISA</span><span class="gp">＋</span></summary><p>개인종합자산관리계좌. 여러 상품을 담고 절세 혜택을 받는 계좌예요.</p></details>
       <details class="gc"><summary><span class="gt">CMA</span><span class="gp">＋</span></summary><p>종합자산관리계좌. 하루만 맡겨도 이자가 붙는 증권사 입출금 계좌예요.</p></details>
@@ -739,6 +744,7 @@ html{scroll-behavior:smooth}
   <!-- FAQ -->
   <section id="faq">
     <div class="sec-head"><span class="eyebrow">FAQ</span><h2>자주 묻는 질문</h2></div>
+    <button class="collapse" data-collapse type="button">모두 접기 ▲</button>
     <details class="acc"><summary><span class="idx">01</span><span class="ttl">비상금 다 못 모았는데 ISA부터 만들면 안 되나요?</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="m6 9 6 6 6-6"/></svg></summary><div class="acc-body"><p>계좌 <b>개설</b>은 먼저 해도 괜찮아요.<br>ISA는 개설한 해부터 납입한도가 쌓이기 때문에 오히려 일찍 만들어두는 게 유리해요.<br>다만 <b>큰돈을 넣는 건</b> 비상금이 채워진 뒤에. 3년 안에 빼면 혜택이 사라지니까요.</p></div></details>
     <details class="acc"><summary><span class="idx">02</span><span class="ttl">월급 10%가 너무 부담돼요</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="m6 9 6 6 6-6"/></svg></summary><div class="acc-body"><p>5%든 3만원이든 상관없어요.<br><b>“매달 자동으로 들어간다”는 구조</b>를 만드는 게 목적이에요.<br>금액은 나중에 올리면 돼요.</p></div></details>
     <details class="acc"><summary><span class="idx">03</span><span class="ttl">지금 시장이 비싼 것 같은데 기다릴까요?</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="m6 9 6 6 6-6"/></svg></summary><div class="acc-body"><p>타이밍을 맞히는 건 전문가도 어려워요.<br>그래서 <b>매달 나눠 사는 방식</b>을 쓰는 거예요.<br>고점에서 시작해도 계속 사 모으면 평균 단가가 조정돼요.</p></div></details>
@@ -837,65 +843,57 @@ html{scroll-behavior:smooth}
   }, {passive:true});
   spy();
 
-  /* ── accordion: 탭한 항목이 항상 화면 맨 위로 오게 ── */
-  var TOP_PAD = 12;                       // 열린 항목이 화면 상단에서 떨어질 거리
+  /* ── accordion ──────────────────────────────────────────
+     탭한 항목이 절대 화면에서 사라지지 않게 하는 게 목표.
+     핵심은 "위쪽 내용은 절대 건드리지 않는다" — 다른 항목을 자동으로
+     닫지 않으므로, 누른 자리 바로 아래로 내용이 펼쳐진다.
+     화면 아래쪽을 눌렀을 때만 살짝 끌어올려 준다.            */
+
   var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-  function siblingsOf(det){
-    if(det.classList.contains("gc")){
-      var gal = det.closest(".gal");
-      return gal ? Array.prototype.slice.call(gal.querySelectorAll(":scope > details.gc")) : [];
-    }
-    var sec = det.closest("section");
-    return sec ? Array.prototype.slice.call(sec.querySelectorAll(":scope > details.acc")) : [];
-  }
-
-  function scrollToTop(el){
-    var top = el.getBoundingClientRect().top - TOP_PAD;
-    if(Math.abs(top) < 8) return;
-    var y = window.pageYOffset + top;
-    var max = document.documentElement.scrollHeight - window.innerHeight;
-    if(y > max) y = max;
-    if(y < 0) y = 0;
-    try{ window.scrollTo({top:y, behavior: reduce ? "auto" : "smooth"}); }
-    catch(e){ window.scrollTo(0, y); }
-  }
-
-  document.addEventListener("click", function(e){
-    var sum = e.target.closest ? e.target.closest("summary") : null;
+  function nudge(det){
+    var sum = det.querySelector("summary");
     if(!sum) return;
-    var det = sum.parentElement;
-    if(!det || det.tagName !== "DETAILS") return;
-    if(!det.classList.contains("acc") && !det.classList.contains("gc")) return;
-
-    e.preventDefault();
-
-    var willOpen = !det.open;
-
-    // 형제 항목을 먼저 닫고, 그 때문에 밀린 만큼 스크롤을 보정해서
-    // 방금 누른 항목이 눈앞에서 움직이지 않게 한다
-    var before = sum.getBoundingClientRect().top;
-    siblingsOf(det).forEach(function(o){ if(o !== det) o.open = false; });
-    var after = sum.getBoundingClientRect().top;
-    if(Math.abs(after - before) > 1) window.scrollBy(0, after - before);
-
-    det.open = willOpen;
-
-    if(willOpen){
-      // 펼침 애니메이션이 끝난 뒤 위치를 잡아야 정확하다
-      requestAnimationFrame(function(){
-        requestAnimationFrame(function(){ scrollToTop(det); });
-      });
+    var top = sum.getBoundingClientRect().top;
+    var vh  = window.innerHeight;
+    // 이미 화면 위쪽(40% 안쪽)에 있으면 그대로 둔다 — 불필요한 움직임이 더 거슬린다
+    if(top <= vh * 0.4) return;
+    try{
+      det.scrollIntoView({block:"start", behavior: reduce ? "auto" : "smooth"});
+    }catch(e){
+      det.scrollIntoView(true);
     }
-  }, false);
+  }
 
-  // 키보드(Enter/Space)로도 같은 동작이 되도록
-  document.addEventListener("keydown", function(e){
-    if(e.key !== "Enter" && e.key !== " " && e.key !== "Spacebar") return;
-    var sum = document.activeElement;
-    if(!sum || sum.tagName !== "SUMMARY") return;
-    e.preventDefault();
-    sum.click();
+  document.addEventListener("toggle", function(e){
+    var det = e.target;
+    if(!det || det.tagName !== "DETAILS" || !det.open) return;
+    if(!det.classList.contains("acc") && !det.classList.contains("gc")) return;
+    // 펼침 애니메이션이 끝난 뒤 위치를 잡아야 정확하다
+    requestAnimationFrame(function(){
+      requestAnimationFrame(function(){ nudge(det); });
+    });
+  }, true);
+
+  function syncCollapseBtn(sec){
+    if(!sec) return;
+    sec.classList.toggle("has-open", !!sec.querySelector("details[open]"));
+  }
+  document.addEventListener("toggle", function(e){
+    var det = e.target;
+    if(det && det.tagName === "DETAILS") syncCollapseBtn(det.closest("section"));
+  }, true);
+
+  /* 모두 접기 — 한 섹션이 너무 길어졌을 때 */
+  document.querySelectorAll("[data-collapse]").forEach(function(btn){
+    btn.addEventListener("click", function(){
+      var sec = btn.closest("section");
+      if(!sec) return;
+      sec.querySelectorAll("details[open]").forEach(function(d){ d.open = false; });
+      syncCollapseBtn(sec);
+      try{ sec.scrollIntoView({block:"start", behavior: reduce ? "auto" : "smooth"}); }
+      catch(err){ sec.scrollIntoView(true); }
+    });
   });
 
 })();
