@@ -120,6 +120,16 @@ details.acc,details.gc{scroll-margin-top:14px}
 .road .d{font-size:13px; color:var(--ink-3); line-height:1.55}
 .road .go{margin-left:auto; color:var(--brand); font-size:20px; flex:none}
 
+/* ── 모두 접기 버튼 ───────────────────────────────────── */
+.collapse{
+  display:none; width:fit-content; margin:-2px 0 10px auto;
+  background:transparent; border:0; cursor:pointer;
+  font-family:var(--sans); font-size:12.5px; color:var(--ink-3); padding:4px 2px;
+}
+.collapse:hover,.collapse:focus-visible{color:var(--brand)}
+section.has-open>.collapse{display:block}
+section:has(details[open])>.collapse{display:block}
+
 /* ── accordion ────────────────────────────────────────── */
 details.acc{
   background:var(--surface); border:2px solid var(--line);
@@ -883,6 +893,13 @@ html{scroll-behavior:smooth}
     var det = e.target;
     if(det && det.tagName === "DETAILS") syncCollapseBtn(det.closest("section"));
   }, true);
+
+  document.addEventListener("click", function(e){
+    var sum = e.target.closest ? e.target.closest("summary") : null;
+    if(!sum) return;
+    var sec = sum.closest("section");
+    if(sec) setTimeout(function(){ syncCollapseBtn(sec); }, 0);
+  });
 
   /* 모두 접기 — 한 섹션이 너무 길어졌을 때 */
   document.querySelectorAll("[data-collapse]").forEach(function(btn){
