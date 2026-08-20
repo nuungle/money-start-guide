@@ -837,16 +837,67 @@ html{scroll-behavior:smooth}
   }, {passive:true});
   spy();
 
-  /* ── accordion: close siblings inside the same section ── */
-  document.querySelectorAll("section").forEach(function(sec){
-    var accs = Array.prototype.slice.call(sec.querySelectorAll(":scope > details.acc"));
-    accs.forEach(function(d){
-      d.addEventListener("toggle", function(){
-        if(!d.open) return;
-        accs.forEach(function(o){ if(o !== d) o.open = false; });
+  /* ── accordion: 탭한 항목이 항상 화면 맨 위로 오게 ── */
+  var TOP_PAD = 12;                       // 열린 항목이 화면 상단에서 떨어질 거리
+  var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  function siblingsOf(det){
+    if(det.classList.contains("gc")){
+      var gal = det.closest(".gal");
+      return gal ? Array.prototype.slice.call(gal.querySelectorAll(":scope > details.gc")) : [];
+    }
+    var sec = det.closest("section");
+    return sec ? Array.prototype.slice.call(sec.querySelectorAll(":scope > details.acc")) : [];
+  }
+
+  function scrollToTop(el){
+    var top = el.getBoundingClientRect().top - TOP_PAD;
+    if(Math.abs(top) < 8) return;
+    var y = window.pageYOffset + top;
+    var max = document.documentElement.scrollHeight - window.innerHeight;
+    if(y > max) y = max;
+    if(y < 0) y = 0;
+    try{ window.scrollTo({top:y, behavior: reduce ? "auto" : "smooth"}); }
+    catch(e){ window.scrollTo(0, y); }
+  }
+
+  document.addEventListener("click", function(e){
+    var sum = e.target.closest ? e.target.closest("summary") : null;
+    if(!sum) return;
+    var det = sum.parentElement;
+    if(!det || det.tagName !== "DETAILS") return;
+    if(!det.classList.contains("acc") && !det.classList.contains("gc")) return;
+
+    e.preventDefault();
+
+    var willOpen = !det.open;
+
+    // 형제 항목을 먼저 닫고, 그 때문에 밀린 만큼 스크롤을 보정해서
+    // 방금 누른 항목이 눈앞에서 움직이지 않게 한다
+    var before = sum.getBoundingClientRect().top;
+    siblingsOf(det).forEach(function(o){ if(o !== det) o.open = false; });
+    var after = sum.getBoundingClientRect().top;
+    if(Math.abs(after - before) > 1) window.scrollBy(0, after - before);
+
+    det.open = willOpen;
+
+    if(willOpen){
+      // 펼침 애니메이션이 끝난 뒤 위치를 잡아야 정확하다
+      requestAnimationFrame(function(){
+        requestAnimationFrame(function(){ scrollToTop(det); });
       });
-    });
+    }
+  }, false);
+
+  // 키보드(Enter/Space)로도 같은 동작이 되도록
+  document.addEventListener("keydown", function(e){
+    if(e.key !== "Enter" && e.key !== " " && e.key !== "Spacebar") return;
+    var sum = document.activeElement;
+    if(!sum || sum.tagName !== "SUMMARY") return;
+    e.preventDefault();
+    sum.click();
   });
+
 })();
 </script>
 
