@@ -1,0 +1,842 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="description" content="비상금 · ISA · ETF 3단계로 정리한 재테크 입문 가이드">
+<meta name="theme-color" content="#E1F0FB" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0C2C3C" media="(prefers-color-scheme: dark)">
+<meta property="og:title" content="재테크 입문 3단계">
+<meta property="og:description" content="재테크 시작 귀찮아서 회피했다면 이것부터 시작하자! 비상금 → ISA → ETF">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%90%B3%3C/text%3E%3C/svg%3E">
+<title>투자 입문 준비물</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@300;400;500;600;700&family=Jua&display=swap">
+
+</head>
+<body>
+<style>
+/* ── tokens ───────────────────────────────────────────── */
+:root{
+  --bg:#F2F9FE; --bg-2:#E1F0FB; --surface:#FFFFFF; --surface-2:#F1F8FE;
+  --ink:#10303F; --ink-2:#3D6377; --ink-3:#7C9DAE;
+  --line:#CDE5F5; --line-soft:#E4F1FB;
+  --brand:#3B9BD8; --brand-deep:#1F6FA8; --brand-soft:#96D0EF; --brand-wash:#E7F4FD;
+  --mint:#2FA98A; --mint-wash:#E4F6F1; --warn:#D97F32; --warn-wash:#FCF1E5;
+  --shadow:rgba(31,111,168,.14); --shadow-2:rgba(31,111,168,.08);
+  --sans:"IBM Plex Sans KR",-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Malgun Gothic",sans-serif;
+  --round:"Jua",var(--sans);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#082130; --bg-2:#0C2C3C; --surface:#0F3242; --surface-2:#143C4E;
+    --ink:#E7F4FC; --ink-2:#A8C9DA; --ink-3:#6F94A8;
+    --line:#245669; --line-soft:#1A4557;
+    --brand:#63BFEE; --brand-deep:#A8DDF8; --brand-soft:#2E6B8C; --brand-wash:#123A4C;
+    --mint:#4FCCA8; --mint-wash:#123E38; --warn:#F0A662; --warn-wash:#3A2C1B;
+    --shadow:rgba(0,0,0,.45); --shadow-2:rgba(0,0,0,.25);
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#082130; --bg-2:#0C2C3C; --surface:#0F3242; --surface-2:#143C4E;
+  --ink:#E7F4FC; --ink-2:#A8C9DA; --ink-3:#6F94A8;
+  --line:#245669; --line-soft:#1A4557;
+  --brand:#63BFEE; --brand-deep:#A8DDF8; --brand-soft:#2E6B8C; --brand-wash:#123A4C;
+  --mint:#4FCCA8; --mint-wash:#123E38; --warn:#F0A662; --warn-wash:#3A2C1B;
+  --shadow:rgba(0,0,0,.45); --shadow-2:rgba(0,0,0,.25);
+}
+
+*{box-sizing:border-box}
+body{
+  margin:0; background:var(--bg); color:var(--ink);
+  font-family:var(--sans); font-weight:400; font-size:16px; line-height:1.72;
+  -webkit-font-smoothing:antialiased; word-break:keep-all;
+}
+.wrap{max-width:560px; margin:0 auto; padding:0 18px 132px}
+
+/* ── hero ─────────────────────────────────────────────── */
+.hero{position:relative; background:var(--bg-2); overflow:hidden}
+.hero-in{max-width:560px; margin:0 auto; padding:34px 22px 8px; text-align:center}
+.badge{
+  display:inline-flex; align-items:center; gap:6px;
+  font-family:var(--sans); font-size:12.5px; font-weight:600; letter-spacing:.02em; color:var(--brand-deep);
+  background:var(--surface); border:2px solid var(--brand-soft);
+  border-radius:999px; padding:5px 15px; box-shadow:0 2px 0 var(--shadow-2);
+}
+.whale{
+  font-size:62px; line-height:1; margin:18px 0 8px; text-align:center;
+  filter:drop-shadow(0 6px 10px var(--shadow-2)); animation:bob 4.5s ease-in-out infinite;
+}
+@keyframes bob{0%,100%{transform:translateY(0) rotate(-2deg)}50%{transform:translateY(-9px) rotate(2deg)}}
+.asof{
+  font-size:12px; color:var(--ink-3); letter-spacing:.02em; margin:12px 0 0;
+  font-variant-numeric:tabular-nums;
+}
+h1{
+  font-family:var(--round); font-weight:400; font-size:clamp(28px,8vw,36px);
+  line-height:1.34; margin:6px 0 10px; color:var(--ink); text-wrap:balance;
+}
+h1 em{font-style:normal; color:var(--brand-deep); position:relative; white-space:nowrap}
+h1 em::after{
+  content:""; position:absolute; left:-2px; right:-2px; bottom:2px; height:9px;
+  background:var(--brand-soft); opacity:.42; border-radius:5px; z-index:-1;
+}
+.sub{color:var(--ink-2); font-size:15px; line-height:1.78; margin:0 auto; max-width:24em}
+.sub b{color:var(--ink); font-weight:600}
+.wave{display:block; width:100%; height:34px; margin-top:14px}
+
+/* ── section shell ────────────────────────────────────── */
+section{scroll-margin-top:64px}
+.sec-head{display:flex; align-items:baseline; gap:9px; margin:38px 0 14px}
+.sec-head h2{
+  font-family:var(--round); font-weight:400; font-size:22px; margin:0; color:var(--ink);
+}
+.sec-head .eyebrow{
+  font-family:var(--sans); font-size:11px; font-weight:600; letter-spacing:.14em;
+  color:var(--brand); text-transform:uppercase;
+}
+.sec-note{color:var(--ink-3); font-size:13.5px; margin:-6px 0 16px; line-height:1.7}
+
+/* ── roadmap cards ────────────────────────────────────── */
+.road{display:flex; flex-direction:column; gap:10px}
+.road a{
+  display:flex; align-items:center; gap:14px; text-decoration:none;
+  background:var(--surface); border:2px solid var(--line);
+  border-radius:20px 18px 21px 19px; padding:14px 16px;
+  box-shadow:0 3px 0 var(--shadow-2); transition:transform .16s ease, border-color .16s ease;
+}
+.road a:hover,.road a:focus-visible{transform:translateY(-2px); border-color:var(--brand-soft)}
+.num{
+  flex:none; width:38px; height:38px; display:grid; place-items:center;
+  font-family:var(--round); font-size:17px; color:#fff; background:var(--brand);
+  border-radius:50% 48% 52% 47%;
+}
+.road a:nth-child(2) .num{background:var(--brand-deep)}
+.road a:nth-child(3) .num{background:var(--mint)}
+.road .t{font-family:var(--round); font-size:17px; color:var(--ink); line-height:1.4}
+.road .d{font-size:13px; color:var(--ink-3); line-height:1.55}
+.road .go{margin-left:auto; color:var(--brand); font-size:20px; flex:none}
+
+/* ── accordion ────────────────────────────────────────── */
+details.acc{
+  background:var(--surface); border:2px solid var(--line);
+  border-radius:18px; margin:0 0 10px; overflow:hidden;
+}
+details.acc[open]{border-color:var(--brand-soft); box-shadow:0 3px 0 var(--shadow-2)}
+details.acc>summary{
+  list-style:none; cursor:pointer; padding:14px 16px;
+  display:flex; align-items:center; gap:11px;
+  font-family:var(--round); font-size:16.5px; color:var(--ink); line-height:1.45;
+}
+details.acc>summary::-webkit-details-marker{display:none}
+details.acc>summary::marker{content:""}
+details.acc>summary:focus-visible{outline:3px solid var(--brand); outline-offset:-3px}
+.chev{
+  margin-left:auto; flex:none; width:20px; height:20px; color:var(--ink-3);
+  transition:transform .22s ease;
+}
+details.acc[open]>summary .chev{transform:rotate(180deg); color:var(--brand)}
+.acc-body{padding:2px 16px 18px; border-top:1px dashed var(--line-soft); margin-top:0}
+details.acc[open] .acc-body{animation:slide .26s ease both}
+@keyframes slide{from{opacity:0; transform:translateY(-5px)}to{opacity:1; transform:none}}
+.acc-body>*:first-child{margin-top:14px}
+.acc-body p{margin:0 0 13px; font-size:14.8px; line-height:1.82; color:var(--ink-2)}
+.acc-body p b,.acc-body li b{color:var(--ink); font-weight:600}
+.acc-body h4{
+  font-family:var(--round); font-weight:400; font-size:16px; color:var(--brand-deep);
+  margin:22px 0 8px;
+}
+.acc-body ul{margin:0 0 12px; padding-left:19px}
+.acc-body li{font-size:14.8px; line-height:1.78; color:var(--ink-2); margin-bottom:5px}
+
+/* ── memo bubble ──────────────────────────────────────── */
+.memo{
+  position:relative; background:var(--brand-wash); border:2px solid var(--brand-soft);
+  border-radius:17px 15px 18px 16px; padding:11px 14px 12px; margin:16px 0 14px;
+}
+.memo::before{
+  content:"TIP"; position:absolute; top:-11px; left:14px;
+  font-family:var(--sans); font-weight:700; font-size:10.5px; letter-spacing:.09em; color:#fff;
+  background:var(--brand); border-radius:6px; padding:2px 8px; line-height:1.5;
+}
+.memo p{font-size:14.4px; line-height:1.75; color:var(--ink); margin:5px 0 0}
+.memo p b{font-weight:700; color:var(--brand-deep)}
+.memo p+p{margin-top:4px}
+.memo.warn{background:var(--warn-wash); border-color:var(--warn)}
+.memo.warn::before{content:"주의"; background:var(--warn)}
+.memo.ref::before{content:"참고"}
+.memo.warn p{color:var(--ink)}
+.memo.warn p b{color:var(--warn)}
+
+/* ── tables ───────────────────────────────────────────── */
+.scroll{overflow-x:auto; -webkit-overflow-scrolling:touch; margin:0 0 14px}
+table{border-collapse:collapse; width:100%; min-width:340px; font-size:13.6px}
+th,td{
+  border-bottom:1px solid var(--line-soft); padding:9px 10px;
+  text-align:left; vertical-align:top; line-height:1.6; color:var(--ink-2);
+}
+th{
+  font-weight:600; color:var(--brand-deep); background:var(--surface-2);
+  white-space:nowrap; font-size:12.5px; letter-spacing:.01em;
+}
+td b,td strong{color:var(--ink); font-weight:600}
+td.n{font-variant-numeric:tabular-nums; white-space:nowrap; text-align:center; font-weight:600; color:var(--ink)}
+tr:last-child td{border-bottom:none}
+
+/* ── compare (일반 vs ISA) ────────────────────────────── */
+.vs{display:grid; grid-template-columns:1fr 1fr; gap:9px; margin:14px 0}
+.vs>div{border-radius:15px; padding:12px 13px; border:2px solid var(--line); background:var(--surface-2)}
+.vs>div.win{border-color:var(--mint); background:var(--mint-wash)}
+.vs .lb{font-size:11.5px; font-weight:600; letter-spacing:.06em; color:var(--ink-3); margin-bottom:3px}
+.vs .win .lb{color:var(--mint)}
+.vs .big{font-family:var(--round); font-size:21px; color:var(--ink); font-variant-numeric:tabular-nums; line-height:1.3}
+.vs .cap{font-size:12px; color:var(--ink-3); line-height:1.55; margin-top:3px}
+
+/* ── etf type grid ────────────────────────────────────── */
+.tags{display:flex; flex-wrap:wrap; gap:5px; margin-top:8px}
+.tag{
+  font-size:11.5px; font-weight:500; color:var(--brand-deep); background:var(--brand-wash);
+  border-radius:7px; padding:2px 8px; line-height:1.62;
+}
+
+/* ── dictionary gallery ───────────────────────────────── */
+.gal{display:grid; grid-template-columns:repeat(2,1fr); gap:8px}
+details.gc{
+  background:var(--surface); border:2px solid var(--line); border-radius:15px;
+  transition:border-color .15s ease, background .15s ease;
+}
+details.gc>summary{
+  list-style:none; cursor:pointer; padding:14px 11px 13px;
+  display:flex; flex-direction:column; align-items:center; justify-content:center; gap:6px;
+  min-height:74px; text-align:center;
+}
+details.gc>summary::-webkit-details-marker{display:none}
+details.gc>summary::marker{content:""}
+details.gc>summary:focus-visible{outline:3px solid var(--brand); outline-offset:-3px; border-radius:13px}
+.gt{font-family:var(--round); font-size:14.5px; color:var(--ink); line-height:1.35; word-break:keep-all}
+.gp{
+  font-size:11px; color:var(--brand); line-height:1; opacity:.75;
+  transition:transform .2s ease;
+}
+details.gc:hover{border-color:var(--brand-soft)}
+details.gc[open]{
+  grid-column:1/-1; border-color:var(--brand); background:var(--brand-wash);
+}
+details.gc[open]>summary{flex-direction:row; justify-content:flex-start; min-height:0; padding:12px 14px 10px; text-align:left}
+details.gc[open] .gt{font-size:15.5px; color:var(--brand-deep)}
+details.gc[open] .gp{margin-left:auto; transform:rotate(45deg)}
+details.gc>p{
+  margin:0; padding:0 14px 15px; font-size:14.2px; line-height:1.78; color:var(--ink-2);
+  animation:slide .24s ease both;
+}
+details.gc .gt wbr{display:inline}
+
+/* ── checklist ────────────────────────────────────────── */
+.prog{
+  display:flex; align-items:center; gap:11px; background:var(--surface);
+  border:2px solid var(--line); border-radius:16px; padding:12px 15px; margin-bottom:14px;
+}
+.bar{flex:1; height:9px; background:var(--brand-wash); border-radius:99px; overflow:hidden}
+.bar i{display:block; height:100%; width:0; background:var(--brand); border-radius:99px; transition:width .3s ease}
+.prog .cnt{font-family:var(--round); font-size:15px; color:var(--brand-deep); font-variant-numeric:tabular-nums; flex:none}
+.wk{font-family:var(--round); font-size:15px; color:var(--brand-deep); margin:16px 0 7px}
+.wk:first-of-type{margin-top:4px}
+.chk{
+  display:flex; align-items:flex-start; gap:11px; background:var(--surface);
+  border:2px solid var(--line); border-radius:14px; padding:11px 13px; margin-bottom:7px;
+  cursor:pointer; transition:border-color .15s ease, background .15s ease;
+}
+.chk:hover{border-color:var(--brand-soft)}
+.chk input{position:absolute; opacity:0; width:0; height:0}
+.box{
+  flex:none; width:21px; height:21px; margin-top:1px; border-radius:7px;
+  border:2px solid var(--brand-soft); background:var(--surface-2);
+  display:grid; place-items:center; transition:all .16s ease;
+}
+.box svg{width:13px; height:13px; color:#fff; opacity:0; transform:scale(.6); transition:all .16s ease}
+.chk input:checked~.box{background:var(--brand); border-color:var(--brand)}
+.chk input:checked~.box svg{opacity:1; transform:none}
+.chk input:focus-visible~.box{outline:3px solid var(--brand); outline-offset:2px}
+.chk .lbl{font-size:14.6px; line-height:1.65; color:var(--ink-2)}
+.chk input:checked~.lbl{color:var(--ink-3); text-decoration:line-through}
+.reset{
+  display:block; margin:14px auto 0; background:transparent; border:0; cursor:pointer;
+  font-family:var(--sans); font-size:13px; color:var(--ink-3); text-decoration:underline;
+  text-underline-offset:3px; padding:6px 10px;
+}
+.reset:hover{color:var(--brand)}
+
+/* ── footer ───────────────────────────────────────────── */
+.foot{
+  margin-top:40px; border-top:2px dashed var(--line); padding-top:20px;
+  font-size:12.6px; line-height:1.85; color:var(--ink-3);
+}
+.foot h3{font-family:var(--round); font-weight:400; font-size:15px; color:var(--ink-2); margin:0 0 8px}
+.foot ul{margin:0 0 16px; padding-left:17px}
+.foot a{color:var(--brand); text-decoration:none; border-bottom:1px solid var(--brand-soft)}
+.sign{text-align:center; font-size:13.5px; font-weight:500; color:var(--brand-deep); margin-top:24px}
+
+/* ── bottom nav ───────────────────────────────────────── */
+.nav{
+  position:fixed; left:0; right:0; bottom:0; z-index:20;
+  background:var(--surface);
+  background:color-mix(in srgb, var(--surface) 92%, transparent);
+  backdrop-filter:blur(12px); -webkit-backdrop-filter:blur(12px);
+  border-top:2px solid var(--line);
+  padding-bottom:env(safe-area-inset-bottom);
+}
+.nav-in{
+  max-width:560px; margin:0 auto; display:grid; grid-template-columns:repeat(5,1fr);
+}
+.nav a{
+  display:flex; flex-direction:column; align-items:center; gap:3px;
+  padding:9px 2px 8px; text-decoration:none; color:var(--ink-3);
+  font-size:11px; font-weight:500; transition:color .15s ease;
+}
+.nav a svg{width:20px; height:20px}
+.nav a.on{color:var(--brand)}
+.nav a:focus-visible{outline:2px solid var(--brand); outline-offset:-4px; border-radius:8px}
+
+/* ── top chips ────────────────────────────────────────── */
+.chips{
+  display:flex; gap:7px; overflow-x:auto; -webkit-overflow-scrolling:touch;
+  padding:16px 0 4px; margin:0 -18px; padding-left:18px; padding-right:18px;
+  scrollbar-width:none;
+}
+.chips::-webkit-scrollbar{display:none}
+.chips a{
+  flex:none; text-decoration:none; font-size:13.5px; font-weight:500; color:var(--ink-2);
+  background:var(--surface); border:2px solid var(--line); border-radius:999px;
+  padding:6px 14px; transition:all .15s ease; white-space:nowrap;
+}
+.chips a:hover,.chips a:focus-visible{border-color:var(--brand); color:var(--brand-deep)}
+.chips a .c-n{font-family:var(--round); color:var(--brand); margin-right:5px; font-size:12.5px}
+
+/* ── summary numbering ────────────────────────────────── */
+.idx{
+  flex:none; font-family:var(--round); font-size:13px; color:var(--brand);
+  background:var(--brand-wash); border-radius:8px; padding:1px 7px;
+  font-variant-numeric:tabular-nums; line-height:1.66;
+}
+.ttl{flex:1; min-width:0}
+
+/* ── flow summary ─────────────────────────────────────── */
+.flow{display:flex; flex-direction:column; align-items:stretch; gap:0}
+.flow .fi{
+  display:flex; align-items:center; justify-content:center; gap:11px; background:var(--surface);
+  border:2px solid var(--line); border-radius:16px; padding:12px 14px; text-align:center;
+}
+.flow .fi .fn{
+  flex:none; width:26px; height:26px; display:grid; place-items:center; border-radius:9px;
+  background:var(--brand); color:#fff; font-family:var(--round); font-size:13px;
+}
+.flow .fi:nth-child(9) .fn,.flow .fi:nth-child(11) .fn,.flow .fi:nth-child(13) .fn{background:var(--mint)}
+.flow .fi .ft{font-size:14.4px; color:var(--ink); line-height:1.55}
+.flow .fi .ft small{display:block; font-size:12.3px; color:var(--ink-3); line-height:1.5}
+.flow .ar{
+  align-self:center; color:var(--brand-soft); font-size:16px; line-height:1;
+  padding:5px 0;
+}
+
+/* ── cta ──────────────────────────────────────────────── */
+.cta{
+  margin-top:34px; text-align:center; background:var(--brand-wash);
+  border:2px solid var(--brand-soft); border-radius:22px 20px 23px 21px; padding:24px 20px 22px;
+}
+.cta .ce{font-size:34px; line-height:1; margin-bottom:8px}
+.cta h3{font-family:var(--round); font-weight:400; font-size:19px; color:var(--ink); margin:0 0 6px; line-height:1.45}
+.cta p{font-size:13.8px; color:var(--ink-2); margin:0 0 16px; line-height:1.7}
+.cta a{
+  display:inline-block; text-decoration:none; background:var(--brand); color:#fff;
+  font-family:var(--round); font-size:15.5px; border-radius:999px; padding:10px 26px;
+  box-shadow:0 3px 0 var(--brand-deep); transition:transform .14s ease;
+}
+.cta a:hover,.cta a:focus-visible{transform:translateY(-2px)}
+
+@media (prefers-reduced-motion:reduce){
+  *{animation-duration:.01ms !important; transition-duration:.01ms !important}
+  html{scroll-behavior:auto}
+}
+html{scroll-behavior:smooth}
+</style>
+
+<div class="hero">
+  <div class="hero-in">
+    <span class="badge">재테크 입문 3단계</span>
+    <div class="whale" aria-hidden="true">🐳</div>
+    <h1>재테크 시작 귀찮아서 회피했다면<br><em>이것부터</em> 시작하자!</h1>
+  </div>
+  <svg class="wave" viewBox="0 0 560 34" preserveAspectRatio="none" aria-hidden="true">
+    <path d="M0 20c46-16 92-16 140 0s94 16 140 0 94-16 140 0 94 16 140 0v14H0Z" fill="var(--bg)"/>
+  </svg>
+</div>
+
+<div class="wrap">
+
+  <nav class="chips" aria-label="바로가기">
+    <a href="#s1"><span class="c-n">01</span>비상금</a>
+    <a href="#s2"><span class="c-n">02</span>ISA</a>
+    <a href="#s3"><span class="c-n">03</span>ETF</a>
+    <a href="#dict">경제용어</a>
+    <a href="#flow">30초 요약</a>
+    <a href="#check">체크리스트</a>
+    <a href="#faq">FAQ</a>
+  </nav>
+
+  <!-- ROADMAP -->
+  <section id="road">
+    <div class="sec-head"><span class="eyebrow">Roadmap</span><h2>학생도 재테크 입문자도 바로 시작할 수 있어요!</h2></div>
+    <p class="sec-note">투자보다 먼저 해야 할 게 있어요.<br><b>돈을 모으고 관리하는 기본을 잘 다져두는 것</b>!<br>이 기본이 없으면 급하게 돈이 필요할 때 마이너스 구간에서 어쩔 수 없이 팔게 되거든요.</p>
+    <nav class="road">
+      <a href="#s1"><span class="num">1</span><span><span class="t">비상금 3~6개월치</span><br><span class="d">최소한의 현금 확보해두기</span></span><span class="go">›</span></a>
+      <a href="#s2"><span class="num">2</span><span><span class="t">ISA 세팅</span><br><span class="d">똑똑하게 혜택 챙기면서 투자 시작하기</span></span><span class="go">›</span></a>
+      <a href="#s3"><span class="num">3</span><span><span class="t">월급 10%로 ETF</span><br><span class="d">공부할 시간 아껴 종합세트로 투자 시작하기</span></span><span class="go">›</span></a>
+    </nav>
+  </section>
+
+  <!-- STEP 1 -->
+  <section id="s1">
+    <div class="sec-head"><span class="eyebrow">Step 1</span><h2>비상금 3~6개월치</h2></div>
+    <p class="sec-note">눌러서 하나씩 열어보세요.</p>
+
+    <details class="acc">
+      <summary><span class="idx">01</span><span class="ttl">한 달 고정지출 × 3~6개월</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="m6 9 6 6 6-6"/></svg></summary>
+      <div class="acc-body">
+        <p>비상금 기준은 <b>월급이 아니라 '생존에 꼭 필요한 고정지출'</b>이에요.<br>월세·관리비·통신비·보험료·대출 상환·식비처럼 <b>소득이 끊겨도 나가는 고정 지출</b>을 기준으로 비상금 목표를 잡아보세요!</p>
+        <div class="scroll"><table>
+          <tr><th>내 상황</th><th>권장 개월 수</th></tr>
+          <tr><td>정규직 · 소득이 안정적</td><td class="n">3개월</td></tr>
+          <tr><td>프리랜서 · 계약직 · 소득 변동 큼</td><td class="n">6개월+</td></tr>
+          <tr><td>부양가족 있음 / 이직 준비 중</td><td class="n">6개월+</td></tr>
+        </table></div>
+        <div class="memo"><p>지난 3개월 카드값·계좌 내역만 열어봐도<br>내 고정지출은 30분이면 나와요.</p></div>
+      </div>
+    </details>
+
+    <details class="acc">
+      <summary><span class="idx">02</span><span class="ttl">CMA가 뭐길래</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="m6 9 6 6 6-6"/></svg></summary>
+      <div class="acc-body">
+        <p>비상금은 <b>언제든 뺄 수 있고, 그동안 놀지는 않는 돈</b>이어야 해요.<br>그래서 묶이는 예·적금이 아니라 CMA가 어울려요.</p>
+        <p><b>CMA</b>(Cash Management Account, 종합자산관리계좌) = 증권사의 <b>이자 붙는 입출금 통장</b></p>
+        <h4>Point 1 — 하루만 맡겨도 수익</h4>
+        <p>예수금이 자동으로 RP(환매조건부채권) 등에 투자되어 <b>하루 단위로 이자가 붙어요.</b></p>
+        <h4>Point 2 — CMA 하나로 다양하게 투자</h4>
+        <p>국내주식, 해외주식, 채권, 펀드 등 여러 상품을 <b>하나의 계좌로</b> 투자할 수 있어요.</p>
+        <h4>Point 3 — 입출금 통장처럼 사용</h4>
+        <p>체크카드 발급이 가능하고, 제휴 ATM에서 입출금·이체도 돼요.<br>(증권사별로 다름)</p>
+      </div>
+    </details>
+
+    <details class="acc">
+      <summary><span class="idx">03</span><span class="ttl">CMA 쓰기 전 꼭 알아두기</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="m6 9 6 6 6-6"/></svg></summary>
+      <div class="acc-body">
+        <p>CMA 수익률(예: 세전 연 2.20%)은 <b>시점·증권사·유형마다 다르고 수시로 바뀌어요.</b><br>가입할 때 직접 확인하세요.</p>
+        <p><b>RP형·MMF형·발행어음형은 예금자보호 대상이 아니에요.</b><br>종금형만 1인당 1억원까지 보호돼요.</p>
+        <p>표시 수익률은 <b>세전</b>이라 이자소득세 15.4%를 떼고 들어와요.</p>
+      </div>
+    </details>
+  </section>
+
+  <!-- STEP 2 -->
+  <section id="s2">
+    <div class="sec-head"><span class="eyebrow">Step 2</span><h2>ISA 세팅</h2></div>
+    <p class="sec-note">같은 상품을 사도 <b>어느 계좌에서 사느냐</b>에 따라 손에 남는 돈이 달라져요.</p>
+
+    <details class="acc">
+      <summary><span class="idx">01</span><span class="ttl">ISA가 뭔가요</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="m6 9 6 6 6-6"/></svg></summary>
+      <div class="acc-body">
+        <p><b>ISA</b>(Individual Savings Account, 개인종합자산관리계좌) = <b>절세 기능이 붙은 투자 바구니</b></p>
+        <p>주식·펀드·ETF·채권 등을 한 계좌 안에서 굴리고, 그 안에서 난 수익에 세금 혜택을 주는 계좌예요.</p>
+        <div class="memo"><p>ISA는 <b>상품이 아니라 '계좌'</b>예요.<br>바구니를 먼저 만들고, 안에 뭘 담을지는 그다음!</p></div>
+      </div>
+    </details>
+
+    <details class="acc">
+      <summary><span class="idx">02</span><span class="ttl">순이익 200만원까지 세금 0원</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="m6 9 6 6 6-6"/></svg></summary>
+      <div class="acc-body">
+        <p>계좌에서 발생한 이익과 손실을 통산한 <b>순소득에 대해 200만원까지 비과세</b>. 초과분은 <b>9.9%</b>의 낮은 세율로 분리과세 돼요.<br>(일반 계좌는 15.4%)</p>
+        <h4>유형별 비과세 한도</h4>
+        <div class="scroll"><table>
+          <tr><th>구분</th><th>비과세 한도</th><th>가입 요건</th></tr>
+          <tr><td><b>일반형</b></td><td class="n">200만원</td><td>서민형·농어민 제외, 가입 요건 충족자</td></tr>
+          <tr><td><b>서민형</b></td><td class="n">400만원</td><td>직전 과세기간 근로소득 5천만원 이하<br>또는 종합소득금액 3.8천만원 이하</td></tr>
+          <tr><td><b>농어민</b></td><td class="n">400만원</td><td>종합소득금액 3.8천만원 이하 농어민</td></tr>
+        </table></div>
+        <div class="memo"><p>가입할 때 <b>서민형 요건에 해당하는지</b> 꼭 확인!<br>한도가 2배(400만원)로 뛰어요.</p></div>
+      </div>
+    </details>
+
+    <details class="acc">
+      <summary><span class="idx">03</span><span class="ttl">손해 본 만큼 세금을 깎아줘요</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="m6 9 6 6 6-6"/></svg></summary>
+      <div class="acc-body">
+        <p><b>손익통산</b> — 수익에서 손실을 차감한 '순수익'에 대해서만 과세하므로 세금을 덜 내요.</p>
+        <p style="font-size:13.6px;color:var(--ink-3)">예시) A펀드 300만원 이익, B주식 150만원 손실이 났다면</p>
+        <div class="vs">
+          <div><div class="lb">일반 계좌</div><div class="big">300만원</div><div class="cap">펀드 수익금 전체에 과세</div></div>
+          <div class="win"><div class="lb">ISA 계좌</div><div class="big">150만원</div><div class="cap">이익+손실 합산분에만 과세</div></div>
+        </div>
+        <h4>손익통산 대상 손익</h4>
+        <ul>
+          <li><b>RP·채권 등</b> : 이자소득(실질소득)</li>
+          <li><b>펀드</b> : 과표기준가로 산출된 손익(과세손익)</li>
+          <li><b>파생결합증권</b>(ELB·DLB 포함) : 배당손익(실질소득)</li>
+          <li><b>국내상장주식</b> : 양도차손(이익·손실을 상계한 최종 손실분 반영)</li>
+        </ul>
+      </div>
+    </details>
+
+    <details class="acc">
+      <summary><span class="idx">04</span><span class="ttl">해지 없이 원금 인출 가능</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="m6 9 6 6 6-6"/></svg></summary>
+      <div class="acc-body">
+        <p>의무가입기간(3년) 중이라도 <b>납입 원금 범위 내에서는 중도인출이 가능</b>하고, 계좌를 해지하는 게 아니라서 세제 혜택이 그대로 유지돼요.</p>
+        <p>다만 <b>수익금은 인출할 수 없어요.</b><br>수익금까지 빼려면 계좌를 해지해야 해요.</p>
+      </div>
+    </details>
+
+    <details class="acc">
+      <summary><span class="idx">05</span><span class="ttl">가입 자격 · 한도 한눈에</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="m6 9 6 6 6-6"/></svg></summary>
+      <div class="acc-body">
+        <div class="scroll"><table>
+          <tr><th>항목</th><th>내용</th></tr>
+          <tr><td><b>가입자격</b></td><td>가입일/만기연장일 기준 <b>만 19세 이상 국내 거주자</b><br>(직전 과세기간에 근로소득이 있으면 만 15세 이상)<br>직전 3년 중 1회 이상 금융소득종합과세 대상자는 제외</td></tr>
+          <tr><td><b>의무가입기간</b></td><td><b>3년</b> — 3년 이전 해지 시 손익통산·세제혜택 적용 불가</td></tr>
+          <tr><td><b>납입한도</b></td><td>가입 연도부터 <b>연 2천만원, 최대 1억원</b><br>납입하지 않은 금액은 다음 연도로 이월<br>(1년차에 1천만원 납입 시 → 2년차에 3천만원 가능)<br>기존 재형저축·소장펀드 한도 포함</td></tr>
+          <tr><td><b>계좌 수</b></td><td><b>1인 1계좌</b> (전 금융기관 통틀어 1개)</td></tr>
+          <tr><td><b>투자 가능</b></td><td>국내주식, 펀드, ETF, 리츠, 채권, ELS/DLS, 원화RP</td></tr>
+          <tr><td><b>투자 불가</b></td><td>해외주식 직접투자, 외화표시 상품, 사모 상품, 금현물</td></tr>
+        </table></div>
+        <div class="memo"><p>해외에 투자하고 싶다면?<br><b>국내에 상장된 해외지수 ETF</b>를 사면 ISA 안에서 가능해요.<br>오히려 절세 효과가 더 커요!</p></div>
+        <h4>ISA 유형 (증권사 기준)</h4>
+        <div class="scroll"><table>
+          <tr><th>유형</th><th>특징</th></tr>
+          <tr><td><b>중개형</b></td><td>내가 직접 종목·ETF를 골라 매매. 입문자에게 가장 무난</td></tr>
+          <tr><td><b>신탁형</b></td><td>내가 상품을 지정하고 금융사가 운용 지시 수행</td></tr>
+          <tr><td><b>일임형</b></td><td>금융사가 알아서 포트폴리오 운용 (보수 발생)</td></tr>
+        </table></div>
+      </div>
+    </details>
+
+    <details class="acc">
+      <summary><span class="idx">06</span><span class="ttl">이건 알고 시작하세요</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="m6 9 6 6 6-6"/></svg></summary>
+      <div class="acc-body">
+        <ul>
+          <li><b>3년을 못 채우고 해지하면 혜택이 전부 날아가요.</b> 3년 안에 쓸 돈은 넣지 마세요. 그래서 Step 1이 먼저예요.</li>
+          <li><b>1인 1계좌</b>라서, 개설 전에 증권사 수수료·상품 라인업을 비교하는 게 좋아요.</li>
+          <li>만기 후 60일 이내에 <b>IRP·연금저축으로 전환하면 전환금액의 10%(최대 300만원) 추가 세액공제 한도</b>를 받을 수 있어요.</li>
+        </ul>
+      </div>
+    </details>
+
+    <details class="acc">
+      <summary><span class="idx">07</span><span class="ttl">2026 세제개편안 (확정 아님)</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="m6 9 6 6 6-6"/></svg></summary>
+      <div class="acc-body">
+        <p>2026년 8월 3일 발표된 세제개편안에 ISA 관련 변경이 담겨 있어요.<br><b>아직 국회 통과 전이라 바뀔 수 있어요.</b></p>
+        <ul>
+          <li><b>'생산적금융 ISA' 신설</b> — 국내 상장주식·국내 주식형 펀드 등 <b>국내 자산 전용</b>. 이자·배당소득 <b>전액 비과세</b>, 납입한도 연 2천만원·최대 2억원, 최대 운영기간 10년. 청년(만 15~34세, 총급여 7,500만원 이하)은 납입금의 10% 소득공제. <b>2027년 1월 1일 신규 가입분부터 적용 예정</b></li>
+          <li><b>기존 일반 ISA</b> — 최대 계약기간 <b>5년으로 제한</b>, <b>연간 납입한도 이월제도 폐지</b> 추진</li>
+        </ul>
+        <div class="memo ref"><p>아직 확정된 내용은 아니에요.<br>이런 방향으로 논의되고 있다는 정도만 참고해 주세요.</p></div>
+      </div>
+    </details>
+  </section>
+
+  <!-- STEP 3 -->
+  <section id="s3">
+    <div class="sec-head"><span class="eyebrow">Step 3</span><h2>월급 10%로 ETF</h2></div>
+    <p class="sec-note">금액보다 <b>지속성</b>이 중요해요.</p>
+
+    <details class="acc">
+      <summary><span class="idx">01</span><span class="ttl">10%인 이유</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="m6 9 6 6 6-6"/></svg></summary>
+      <div class="acc-body">
+        <ul>
+          <li>한 번에 큰돈을 넣는 것보다 <b>매달 자동으로 들어가는 구조</b>가 훨씬 오래 가요.</li>
+          <li>10%는 <b>생활에 티가 안 나면서 습관은 만들어지는</b> 구간이에요. 익숙해지면 15%, 20%로 올리면 돼요.</li>
+          <li>매달 같은 금액을 사면 자연스럽게 <b>가격이 쌀 때 더 많이, 비쌀 때 더 적게</b> 사게 돼요.</li>
+        </ul>
+        <div class="memo"><p>실행은 이 한 줄이면 끝!<br><b>월급날 다음 날 자동이체 → ISA → 정해둔 ETF 매수</b></p></div>
+      </div>
+    </details>
+
+    <details class="acc">
+      <summary><span class="idx">02</span><span class="ttl">ETF가 뭔가요</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="m6 9 6 6 6-6"/></svg></summary>
+      <div class="acc-body">
+        <p><b>ETF</b>(Exchange Traded Fund, 상장지수펀드) = <b>주식처럼 사고파는 펀드</b></p>
+        <p>여러 종목을 한 바구니에 담아 만든 펀드를 거래소에 상장시킨 상품이에요.<br><b>1주만 사도 그 바구니 안의 수십~수백 종목에 동시에 투자</b>하는 효과가 나요.</p>
+      </div>
+    </details>
+
+    <details class="acc">
+      <summary><span class="idx">03</span><span class="ttl">자산에 따른 6가지</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="m6 9 6 6 6-6"/></svg></summary>
+      <div class="acc-body">
+        <h4>시장지수형</h4>
+        <p>다양한 종목으로 이루어진 지수를 동일하게 추종하기 때문에 시장의 성장이 수익률로 이어져요.<span class="tags"><span class="tag">#지수</span><span class="tag">#분산투자</span></span></p>
+        <h4>테마 / 섹터형</h4>
+        <p>성장이 기대되는 산업이나 특정 기술의 잠재력에 집중 투자할 수 있어요.<span class="tags"><span class="tag">#테마투자</span><span class="tag">#높은변동성</span></span></p>
+        <h4>국공채형</h4>
+        <p>국가(국채)와 공공기관·지방자치단체(공채)가 발행하는 채권에 투자할 수 있어요.<span class="tags"><span class="tag">#이자수익</span><span class="tag">#낮은변동성</span></span></p>
+        <h4>회사채형</h4>
+        <p>기업이 발행한 회사채에 투자해서 이자수익과 자본차익을 추구해요.<br>금리와 신용등급에 따라 수익률과 위험수준이 달라질 수 있어요.<span class="tags"><span class="tag">#이자수익</span><span class="tag">#신용등급</span></span></p>
+        <h4>원자재형</h4>
+        <p>금, 은, 원유 등 원자재 가격의 움직임에 따라 수익이 달라져요.<br>글로벌 경기 및 수급 상황에 영향을 받을 수 있어요.<span class="tags"><span class="tag">#금</span><span class="tag">#은</span><span class="tag">#원유</span></span></p>
+        <h4>리츠 / 부동산형</h4>
+        <p>상장 리츠 또는 부동산 관련 자산에 투자하여 임대수익과 자산가치 변동에 따른 수익을 추구해요.<span class="tags"><span class="tag">#부동산수익</span><span class="tag">#배당수익</span></span></p>
+        <div class="memo"><p>입문자라면 <b>시장지수형부터.</b><br>테마형은 잘 맞으면 크게 오르지만 변동성이 훨씬 커요.<br>코어를 먼저 세우고 위성을 붙이는 순서로!</p></div>
+      </div>
+    </details>
+
+    <details class="acc">
+      <summary><span class="idx">04</span><span class="ttl">운용방식 — 패시브 vs 액티브</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="m6 9 6 6 6-6"/></svg></summary>
+      <div class="acc-body">
+        <h4>패시브 Passive</h4>
+        <p>S&amp;P500이나 코스피와 같은 <b>특정 지수의 움직임을 그대로 추종</b>하도록 설계된 투자 전략이에요.<br>비교적 <b>운용비용이 낮고</b>, 시장 평균 수익률을 목표로 해요.</p>
+        <h4>액티브 Active</h4>
+        <p>운용역의 판단에 따라 종목을 선별해 <b>지수 대비 초과수익을 추구</b>하는 투자 전략이에요.<br>상대적으로 <b>운용비용이 높지만</b>, 시장 상황에 맞추어 유연하게 대응할 수 있어요.</p>
+      </div>
+    </details>
+
+    <details class="acc">
+      <summary><span class="idx">05</span><span class="ttl">ETF 고를 때 볼 4가지</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="m6 9 6 6 6-6"/></svg></summary>
+      <div class="acc-body">
+        <div class="scroll"><table>
+          <tr><th>체크포인트</th><th>왜 중요한가</th></tr>
+          <tr><td><b>총보수(TER)</b></td><td>매년 자산에서 자동으로 빠져나가는 비용. 같은 지수를 추종한다면 <b>낮을수록 유리</b>. 장기로 갈수록 차이가 커져요</td></tr>
+          <tr><td><b>순자산 규모</b></td><td>너무 작으면 <b>상장폐지(청산)</b> 위험이 있어요</td></tr>
+          <tr><td><b>거래량 · 스프레드</b></td><td>거래가 적으면 원하는 가격에 사고팔기 어려워요</td></tr>
+          <tr><td><b>추적오차 · 괴리율</b></td><td>기초지수를 얼마나 잘 따라가는지, 시장가격이 실제 가치(NAV)와 얼마나 벌어져 있는지. <b>작을수록 좋아요</b></td></tr>
+        </table></div>
+      </div>
+    </details>
+
+    <details class="acc">
+      <summary><span class="idx">06</span><span class="ttl">ETF 세금 (일반 계좌 기준)</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="m6 9 6 6 6-6"/></svg></summary>
+      <div class="acc-body">
+        <div class="scroll"><table>
+          <tr><th>구분</th><th>매매차익</th><th>분배금</th></tr>
+          <tr><td>국내상장 · <b>국내주식형</b></td><td><b>비과세</b></td><td>15.4%</td></tr>
+          <tr><td>국내상장 · <b>해외주식/채권/원자재</b></td><td>배당소득세 15.4%</td><td>15.4%</td></tr>
+          <tr><td><b>해외상장</b> ETF</td><td>양도소득세 22%<br>(연 250만원 공제 후)</td><td>15.4%</td></tr>
+        </table></div>
+        <p style="font-size:13px;color:var(--ink-3)">※ 세율은 지방소득세 포함 기준. 연간 금융소득이 2,000만원을 넘으면 금융소득종합과세 대상이 돼요.</p>
+        <div class="memo"><p><b>ISA 계좌 안에서 사면</b> 위 과세분이<br>손익통산 + 비과세 200/400만원 + 초과분 9.9%로 바뀌어요.<br>이게 Step 2를 먼저 하는 이유!</p></div>
+      </div>
+    </details>
+    <details class="acc">
+      <summary><span class="idx">07</span><span class="ttl">ISA 계좌 열었다면, 뭐부터 살까?</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="m6 9 6 6 6-6"/></svg></summary>
+      <div class="acc-body">
+        <p>계좌를 만들고 나면 여기서 제일 많이 막혀요.<br>종목을 고르려 하지 말고 <b>순서대로 층을 쌓는다</b>고 생각하면 쉬워요.</p>
+
+        <h4>1층 · 코어 — 시장지수형 1개</h4>
+        <p>가장 먼저 채울 자리예요.<br>한 나라나 한 시장 전체를 통째로 담는 <b>시장지수형 ETF 하나</b>면 시작으로 충분해요.<br>여기가 비어 있는데 테마형부터 사는 건 순서가 거꾸로예요.</p>
+
+        <h4>2층 · 분산 — 지역이나 자산을 하나 더</h4>
+        <p>1층이 익숙해지면 <b>다른 지역</b>(국내만 있었다면 해외지수, 반대도 마찬가지)이나 <b>다른 자산</b>(채권형)을 하나 더해요.<br>서로 다르게 움직이는 걸 섞어야 분산이 돼요.<br>같은 시장을 담은 ETF를 여러 개 사는 건 분산이 아니라 중복이에요.</p>
+
+        <h4>3층 · 위성 — 관심 있는 테마 (선택)</h4>
+        <p>테마·섹터형은 여기까지 온 다음이에요.<br>넣더라도 <b>전체의 10~20% 안쪽</b>으로 두는 걸 권해요.<br>변동성이 커서 비중이 크면 1·2층이 흔들려요.</p>
+
+        <h4>성향별 예시 구성</h4>
+        <div class="scroll"><table>
+          <tr><th>성향</th><th>주식형</th><th>채권형·현금성</th><th>테마형</th></tr>
+          <tr><td><b>안정</b></td><td class="n">40%</td><td class="n">60%</td><td class="n">0%</td></tr>
+          <tr><td><b>균형</b></td><td class="n">60%</td><td class="n">30%</td><td class="n">10%</td></tr>
+          <tr><td><b>공격</b></td><td class="n">80%</td><td class="n">5%</td><td class="n">15%</td></tr>
+        </table></div>
+        <p style="font-size:13px;color:var(--ink-3)">※ 어디까지나 구조를 보여주는 예시예요.<br>나이·소득·언제 쓸 돈인지에 따라 정답이 달라져요.</p>
+
+        <h4>첫 매수할 때</h4>
+        <ul>
+          <li>모아둔 돈을 <b>한 번에 다 넣지 마세요.</b> 몇 달에 나눠 들어가는 게 마음이 편해요.</li>
+          <li>장 시작 직후와 마감 직전에는 <b>가격이 튀기 쉬워요.</b> 그 시간대는 피하는 게 좋아요.</li>
+          <li>주문할 땐 시장가보다 <b>가격을 정해두는 지정가</b>가 안전해요.</li>
+          <li>산 다음엔 <b>이름과 산 이유를 한 줄로 적어두세요.</b> 나중에 팔지 말지 판단할 때 이 메모가 기준이 돼요.</li>
+        </ul>
+
+        <div class="memo ref"><p>여기 적힌 건 <b>구조를 잡는 방법</b>이지 특정 상품 추천이 아니에요.<br>실제로 뭘 살지는 05번 체크포인트로 직접 비교해서 정해 주세요.</p></div>
+      </div>
+    </details>
+  </section>
+
+  <!-- DICTIONARY -->
+  <section id="dict">
+    <div class="sec-head"><span class="eyebrow">Dictionary</span><h2>경제용어 부수기</h2></div>
+    <p class="sec-note">궁금한 단어를 눌러보세요.</p>
+    <div class="gal">
+      <details class="gc"><summary><span class="gt">ETF</span><span class="gp">＋</span></summary><p>상장지수펀드. 여러 종목을 담은 펀드를 주식처럼 거래소에서 사고파는 상품이에요.</p></details>
+      <details class="gc"><summary><span class="gt">ISA</span><span class="gp">＋</span></summary><p>개인종합자산관리계좌. 여러 상품을 담고 절세 혜택을 받는 계좌예요.</p></details>
+      <details class="gc"><summary><span class="gt">CMA</span><span class="gp">＋</span></summary><p>종합자산관리계좌. 하루만 맡겨도 이자가 붙는 증권사 입출금 계좌예요.</p></details>
+      <details class="gc"><summary><span class="gt">예수금</span><span class="gp">＋</span></summary><p>계좌에 들어있지만 아직 투자하지 않은 현금이에요.</p></details>
+      <details class="gc"><summary><span class="gt">손익통산</span><span class="gp">＋</span></summary><p>이익과 손실을 합쳐서 순이익에만 세금을 매기는 거예요.</p></details>
+      <details class="gc"><summary><span class="gt">비과세</span><span class="gp">＋</span></summary><p>세금을 아예 매기지 않는 거예요.</p></details>
+      <details class="gc"><summary><span class="gt">분리과세</span><span class="gp">＋</span></summary><p>다른 소득과 합치지 않고 그 소득만 따로 정해진 세율로 과세해요.<br>ISA 비과세 초과분은 9.9%예요.</p></details>
+      <details class="gc"><summary><span class="gt">금융소득<wbr>종합과세</span><span class="gp">＋</span></summary><p>연간 이자+배당 소득이 2,000만원을 넘으면 다른 소득과 합산해 누진세율로 과세하는 제도예요.</p></details>
+      <details class="gc"><summary><span class="gt">기초지수</span><span class="gp">＋</span></summary><p>ETF가 따라가기로 정한 기준 지수예요.<br>S&amp;P500, 코스피200 같은 거요.</p></details>
+      <details class="gc"><summary><span class="gt">국채·공채<wbr>·회사채</span><span class="gp">＋</span></summary><p>각각 국가 / 공공기관·지자체 / 기업이 돈을 빌리며 발행하는 채권이에요.</p></details>
+      <details class="gc"><summary><span class="gt">IRP</span><span class="gp">＋</span></summary><p>개인형 퇴직연금 계좌예요.<br>세액공제를 받는 대신 만 55세까지 돈이 묶여요.</p></details>
+      <details class="gc"><summary><span class="gt">총보수</span><span class="gp">＋</span></summary><p>ETF를 갖고 있는 동안 매년 자동으로 빠져나가는 운용 비용이에요.<br>TER이라고도 해요.</p></details>
+      <details class="gc"><summary><span class="gt">순자산</span><span class="gp">＋</span></summary><p>그 ETF에 모여 있는 돈의 총 규모예요.<br>너무 작으면 상장폐지(청산) 위험이 있어요.</p></details>
+      <details class="gc"><summary><span class="gt">거래량</span><span class="gp">＋</span></summary><p>하루에 얼마나 사고팔리는지예요.<br>적으면 원하는 가격에 거래하기 어려워요.</p></details>
+      <details class="gc"><summary><span class="gt">추적오차</span><span class="gp">＋</span></summary><p>ETF가 기초지수를 얼마나 못 따라갔는지 보여주는 값이에요.<br>작을수록 좋아요.</p></details>
+    </div>
+  </section>
+
+  <!-- FLOW -->
+  <section id="flow">
+    <div class="sec-head"><span class="eyebrow">Summary</span><h2>30초 요약</h2></div>
+    <div class="flow">
+      <div class="fi"><span class="fn">1</span><span class="ft">비상금 금액 정하기<small>월 고정지출 × 3~6개월</small></span></div>
+      <div class="ar">↓</div>
+      <div class="fi"><span class="fn">2</span><span class="ft">CMA 계좌 개설<small>비상금 넣어두는 자리</small></span></div>
+      <div class="ar">↓</div>
+      <div class="fi"><span class="fn">3</span><span class="ft">비상금 채우기<small>여기까지가 안전벨트</small></span></div>
+      <div class="ar">↓</div>
+      <div class="fi"><span class="fn">4</span><span class="ft">ISA(중개형) 개설<small>서민형 요건 확인 필수</small></span></div>
+      <div class="ar">↓</div>
+      <div class="fi"><span class="fn">5</span><span class="ft">투자할 ETF 고르기<small>시장지수형 1~2개면 충분</small></span></div>
+      <div class="ar">↓</div>
+      <div class="fi"><span class="fn">6</span><span class="ft">자동이체 걸기<small>월급날 다음 날, 실수령액 10%</small></span></div>
+      <div class="ar">↓</div>
+      <div class="fi"><span class="fn">7</span><span class="ft">분기 1회만 확인<small>그 외엔 앱 열지 않기</small></span></div>
+    </div>
+  </section>
+
+  <!-- CHECKLIST -->
+  <section id="check">
+    <div class="sec-head"><span class="eyebrow">Checklist</span><h2>실행 체크리스트</h2></div>
+    <p class="sec-note">눌러서 체크하세요.<br>진행 상황은 이 브라우저에 저장돼요.</p>
+    <div class="prog"><div class="bar"><i id="barFill"></i></div><span class="cnt" id="cnt">0 / 10</span></div>
+    <div id="chkList">
+      <p class="wk">Week 1 · 현황 파악</p>
+      <label class="chk"><input type="checkbox"><span class="box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><path d="m4 12 6 6L20 6"/></svg></span><span class="lbl">지난 3개월 카드·계좌 내역으로 월 고정지출 계산하기</span></label>
+      <label class="chk"><input type="checkbox"><span class="box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><path d="m4 12 6 6L20 6"/></svg></span><span class="lbl">목표 비상금 = 고정지출 × 3~6 → 금액 적어두기</span></label>
+      <label class="chk"><input type="checkbox"><span class="box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><path d="m4 12 6 6L20 6"/></svg></span><span class="lbl">지금 모아둔 현금이 얼마인지 확인하기</span></label>
+      <p class="wk">Week 2 · 그릇 만들기</p>
+      <label class="chk"><input type="checkbox"><span class="box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><path d="m4 12 6 6L20 6"/></svg></span><span class="lbl">증권사 1곳 고르기 (수수료 · 앱 편의성 비교)</span></label>
+      <label class="chk"><input type="checkbox"><span class="box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><path d="m4 12 6 6L20 6"/></svg></span><span class="lbl">CMA 계좌 개설 → 비상금 옮기기</span></label>
+      <label class="chk"><input type="checkbox"><span class="box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><path d="m4 12 6 6L20 6"/></svg></span><span class="lbl">ISA(중개형) 계좌 개설하기</span></label>
+      <label class="chk"><input type="checkbox"><span class="box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><path d="m4 12 6 6L20 6"/></svg></span><span class="lbl">서민형 요건 해당되는지 확인 후 신청</span></label>
+      <p class="wk">Week 3 · 공부 &amp; 선택</p>
+      <label class="chk"><input type="checkbox"><span class="box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><path d="m4 12 6 6L20 6"/></svg></span><span class="lbl">시장지수형 ETF 2~3개 비교하기</span></label>
+      <label class="chk"><input type="checkbox"><span class="box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><path d="m4 12 6 6L20 6"/></svg></span><span class="lbl">총보수 · 순자산 · 거래량 · 추적오차 확인</span></label>
+      <label class="chk"><input type="checkbox"><span class="box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><path d="m4 12 6 6L20 6"/></svg></span><span class="lbl">매달 넣을 금액 확정 (실수령액 × 10%)</span></label>
+    </div>
+    <button class="reset" id="reset" type="button">체크 초기화</button>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq">
+    <div class="sec-head"><span class="eyebrow">FAQ</span><h2>자주 묻는 질문</h2></div>
+    <details class="acc"><summary><span class="idx">01</span><span class="ttl">비상금 다 못 모았는데 ISA부터 만들면 안 되나요?</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="m6 9 6 6 6-6"/></svg></summary><div class="acc-body"><p>계좌 <b>개설</b>은 먼저 해도 괜찮아요.<br>ISA는 개설한 해부터 납입한도가 쌓이기 때문에 오히려 일찍 만들어두는 게 유리해요.<br>다만 <b>큰돈을 넣는 건</b> 비상금이 채워진 뒤에. 3년 안에 빼면 혜택이 사라지니까요.</p></div></details>
+    <details class="acc"><summary><span class="idx">02</span><span class="ttl">월급 10%가 너무 부담돼요</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="m6 9 6 6 6-6"/></svg></summary><div class="acc-body"><p>5%든 3만원이든 상관없어요.<br><b>“매달 자동으로 들어간다”는 구조</b>를 만드는 게 목적이에요.<br>금액은 나중에 올리면 돼요.</p></div></details>
+    <details class="acc"><summary><span class="idx">03</span><span class="ttl">지금 시장이 비싼 것 같은데 기다릴까요?</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="m6 9 6 6 6-6"/></svg></summary><div class="acc-body"><p>타이밍을 맞히는 건 전문가도 어려워요.<br>그래서 <b>매달 나눠 사는 방식</b>을 쓰는 거예요.<br>고점에서 시작해도 계속 사 모으면 평균 단가가 조정돼요.</p></div></details>
+    <details class="acc"><summary><span class="idx">04</span><span class="ttl">ETF는 몇 개나 사야 하나요?</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="m6 9 6 6 6-6"/></svg></summary><div class="acc-body"><p>입문 단계에서는 <b>시장지수형 1~2개면 충분해요.</b><br>ETF 자체가 이미 분산 투자 상품이라, 여러 개를 사도 안에 든 종목이 겹치는 경우가 많아요.</p></div></details>
+    <details class="acc"><summary><span class="idx">05</span><span class="ttl">계좌를 매일 확인하게 돼요</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="m6 9 6 6 6-6"/></svg></summary><div class="acc-body"><p>정상이에요.<br>그래서 <b>분기 1회 점검일</b>을 캘린더에 박아두라는 거예요.<br>자주 볼수록 안 팔아도 될 때 팔게 되거든요.</p></div></details>
+  </section>
+
+  <div class="cta">
+    <div class="ce">🐳</div>
+    <h3>이 정도면 시작해볼 만하죠?</h3>
+    <p>더 자세한 이야기랑 다음 단계는<br>눙글 계정에서 계속 풀고 있어요.</p>
+    <a href="https://www.instagram.com/nuungle/" target="_blank" rel="noopener">눙글 보러가기 →</a>
+  </div>
+
+  <div class="foot">
+    <h3>꼭 읽어주세요</h3>
+    <ul>
+      <li>이 자료는 <b>정보 제공 목적</b>이며 특정 상품의 투자 권유나 투자 자문이 아니에요.</li>
+      <li>모든 투자에는 <b>원금 손실 위험</b>이 있고, 투자 판단과 결과의 책임은 투자자 본인에게 있어요.</li>
+      <li>세제·제도 내용은 <b>2026년 8월 기준</b>이며 법령 개정에 따라 달라질 수 있어요.</li>
+      <li>CMA 수익률·ETF 총보수 등 상품별 수치는 시점과 회사에 따라 달라요. 본문 수치는 예시예요.</li>
+    </ul>
+    <h3>확인해볼 곳</h3>
+    <ul>
+      <li><a href="https://www.nts.go.kr" target="_blank" rel="noopener">국세청</a> · <a href="https://fine.fss.or.kr" target="_blank" rel="noopener">금융감독원 파인</a></li>
+      <li><a href="https://www.kdic.or.kr" target="_blank" rel="noopener">예금보험공사</a> · <a href="http://data.krx.co.kr" target="_blank" rel="noopener">KRX 정보데이터시스템</a></li>
+    </ul>
+    <p class="sign">돈 되는 정보 파밍 중 🐳</p>
+  </div>
+</div>
+
+<nav class="nav" aria-label="섹션 이동">
+  <div class="nav-in">
+    <a href="#road" data-t="road"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18M3 12h18M3 18h10"/></svg>로드맵</a>
+    <a href="#s1" data-t="s1"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M17 6H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>비상금</a>
+    <a href="#s2" data-t="s2"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="3"/><path d="M2 10h20"/></svg>ISA</a>
+    <a href="#dict" data-t="dict"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4.5A2.5 2.5 0 0 1 6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5Z"/><path d="M8 7h8M8 11h6"/></svg>용어</a>
+    <a href="#check" data-t="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 12 5 5 13-13"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V6"/></svg>체크</a>
+  </div>
+</nav>
+
+<script>
+(function(){
+  "use strict";
+  var KEY = "nuungle-invest-check-v2";
+
+  /* ── checklist ── */
+  var boxes = Array.prototype.slice.call(document.querySelectorAll("#chkList input"));
+  var fill = document.getElementById("barFill");
+  var cnt  = document.getElementById("cnt");
+
+  function load(){
+    try{
+      var raw = localStorage.getItem(KEY);
+      if(!raw) return;
+      var saved = JSON.parse(raw);
+      if(Object.prototype.toString.call(saved) !== "[object Array]") return;
+      boxes.forEach(function(b,i){ b.checked = !!saved[i]; });
+    }catch(e){}
+  }
+  function save(){
+    try{ localStorage.setItem(KEY, JSON.stringify(boxes.map(function(b){return b.checked?1:0;}))); }catch(e){}
+  }
+  function paint(){
+    var n = boxes.filter(function(b){return b.checked;}).length;
+    fill.style.width = (n / boxes.length * 100) + "%";
+    cnt.textContent = n + " / " + boxes.length;
+  }
+  boxes.forEach(function(b){ b.addEventListener("change", function(){ save(); paint(); }); });
+  document.getElementById("reset").addEventListener("click", function(){
+    boxes.forEach(function(b){ b.checked = false; });
+    save(); paint();
+  });
+  load(); paint();
+
+  /* ── bottom nav scroll spy ── */
+  var links = Array.prototype.slice.call(document.querySelectorAll(".nav a"));
+  var map = {};
+  links.forEach(function(a){ map[a.getAttribute("data-t")] = a; });
+  var targets = Object.keys(map).map(function(id){ return document.getElementById(id); }).filter(Boolean);
+
+  function spy(){
+    var best = null, bestTop = -Infinity;
+    targets.forEach(function(el){
+      var top = el.getBoundingClientRect().top - 90;
+      if(top <= 0 && top > bestTop){ bestTop = top; best = el; }
+    });
+    links.forEach(function(a){ a.classList.remove("on"); });
+    if(best && map[best.id]) map[best.id].classList.add("on");
+  }
+  var tick = false;
+  window.addEventListener("scroll", function(){
+    if(tick) return;
+    tick = true;
+    window.requestAnimationFrame(function(){ spy(); tick = false; });
+  }, {passive:true});
+  spy();
+
+  /* ── accordion: close siblings inside the same section ── */
+  document.querySelectorAll("section").forEach(function(sec){
+    var accs = Array.prototype.slice.call(sec.querySelectorAll(":scope > details.acc"));
+    accs.forEach(function(d){
+      d.addEventListener("toggle", function(){
+        if(!d.open) return;
+        accs.forEach(function(o){ if(o !== d) o.open = false; });
+      });
+    });
+  });
+})();
+</script>
+
+</body>
+</html>
